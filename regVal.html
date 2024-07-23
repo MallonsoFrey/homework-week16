@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form {
+            position: relative;
+            left: 40%;
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            height: 450px;
+            justify-content: space-around;
+            border: 3px solid pink;
+            padding: 10px;
+        }
+        p {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(108, 22, 108);
+            margin: 0;
+        }
+        .agreeTermsCheck {
+            position: absolute;
+            left: 85%;
+            top: 80%;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form class="form" name="form" novalidate>
+        <p>Регистрация</p>
+
+        <input type="text" name="name" class="form-input" id="name" placeholder="Введите ваше имя" required>
+        <span class="error" id="errorName"></span>
+        <input type="email" name="email" class="form-input" id="email" placeholder="Введите ваш Email" required>
+        <span class="error" id="errorEmail"></span>
+        <input type="number" name="age" class="form-input" id="age" placeholder="Введите ваш возраст" required>
+        <span class="error" id="errorAge"></span>
+
+        <fieldset>
+            <label for="male">М</label>
+            <input type="radio" name="sex" id="male">
+            <label for="female">Ж</label>
+            <input type="radio" name="sex" id="female">
+        </fieldset>
+
+        <select name="profession" class="form-input" id="profession" required>
+            <option value="" disabled selected hidden>Выберите профессию</option>
+            <option value="doctor">Врач</option>
+            <option value="programmer">Программист</option>
+            <option value="teacher">Учитель</option>
+            <option value="designer">Дизайнер</option>
+            <option value="engineer">Инженер</option>
+            <option value="seller">Продавец</option>
+            <option value="other">Другое</option>
+        </select>
+        <span class="error" id="errorProf"></span>
+
+        <input type="password" name="password" class="form-input" id="password" placeholder="Введите пароль" minlength="5" pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/" required>
+        <span class="error" id="errorPassword"></span>
+        <label class="agreeTermsLabel" for="agreeTerms">Я согласен на обработку персональных данных</label>
+        <input class="agreeTermsCheck" type="checkbox" name="agreeTerms" class="form-input" id="agreeTerms" required>
+        <span class="error" id="errorTerms"></span>
+        <button type="submit" class="submitBtn">Отправить</button>    
+    </form>
+    <script src="regVal.js"></script>
+</body>
+</html>
